@@ -1,0 +1,14 @@
+//WIFI V1
+#include <MWiFi.h>
+MWiFi WIFI;
+void setup(){
+  WIFI.begin();
+  WIFI.setNetMask("255.255.255.0");  
+  WIFI.setGateway("192.168.0.1");
+  WIFI.ConnSetOpen("Tesina_5c");
+  WIFI.Connect();
+}
+void loop(){
+}
+  
+
