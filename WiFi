@@ -1,14 +1,14 @@
-//WIFI V2
-//Modifiche: Aggiunto collegamento rete protetta da PSW e impostato indirizzo IP statico
-#include <MWiFi.h>
+//WIFI V2.1
+//Modifiche: Rimosso collegamento rete protetta da PSW
+#include <MWiFi.h>                   //Includo la libreria MWiFi
 MWiFi WIFI;
 void setup(){
-  WIFI.begin();
-  WIFI.setNetMask("255.255.255.0");  
-  WIFI.setGateway("192.168.0.1");
-  WIFI.setIP("192.168.0.40");
-  WIFI.ConnSetWPA("Tesina_5c","landini5");
-  WIFI.Connect();
+  WIFI.begin();                      //Attivo la shield WiFi
+  WIFI.setNetMask("255.255.255.0");  //Imposto indirizzo maschera di sottorete   
+  WIFI.setGateway("192.168.0.1");    //Imposto indirizzo gateway
+  WIFI.setIP("192.168.0.40");        //Imposto indirizzo IP statico  
+  WIFI.ConnSetOpen("Tesina_5c");     //Imposto SSID della rete a cui desidero collegarmi 
+  WIFI.Connect();                    //Connetto Arduino alla rete
 }
 void loop(){
 }
