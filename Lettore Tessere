@@ -1,0 +1,22 @@
+#include <MWiFi.h>                   //Includo la libreria MWiFi
+MWiFi WIFI;
+char t;
+char  temp_str[13];
+int csocket;
+void setup(){
+  WIFI.begin();                      //Attivo la shield WiFi
+  WIFI.setNetMask("255.255.255.0");  //Imposto indirizzo maschera di sottorete   
+  WIFI.setGateway("192.168.0.1");    //Imposto indirizzo gateway
+  WIFI.setIP("192.168.0.40");        //Imposto indirizzo IP statico  
+  WIFI.ConnSetOpen("Tesina_5c");     //Imposto SSID della rete a cui desidero collegarmi 
+  WIFI.Connect();                    //Connetto Arduino alla rete
+  int csocket=WIFI.openSockTCP("192.168.0.30",5000);
+}
+void loop(){
+  if(Serial.available()>0){
+   t=Serial.read();
+  strncpy(temp_str,&t,12);
+  temp_str[12]='\0';
+  WIFI.writeDataLn(csocket,temp_str);
+  }
+}
