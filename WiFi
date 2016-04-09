@@ -1,14 +1,14 @@
-//WIFI V1
+//WIFI V2
+//Modifiche: Aggiunto collegamento rete protetta da PSW e impostato indirizzo IP statico
 #include <MWiFi.h>
 MWiFi WIFI;
 void setup(){
   WIFI.begin();
   WIFI.setNetMask("255.255.255.0");  
   WIFI.setGateway("192.168.0.1");
-  WIFI.ConnSetOpen("Tesina_5c");
+  WIFI.setIP("192.168.0.40");
+  WIFI.ConnSetWPA("Tesina_5c","landini5");
   WIFI.Connect();
 }
 void loop(){
 }
-  
-
