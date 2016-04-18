@@ -9,7 +9,7 @@ void setup(){
   WIFI.setIP("192.168.0.40");        //Imposto indirizzo IP statico  
   WIFI.ConnSetOpen("Tesina_5c");     //Imposto SSID della rete a cui desidero collegarmi 
   WIFI.Connect();  //Connetto Arduino alla rete
-  int csocket=WIFI.openSockTCP("192.168.0.30",5000);
+  int csocket=WIFI.openSockTCP("192.168.0.100",5000);
 }
 void loop(){
   t="prova";
